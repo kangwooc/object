@@ -7,7 +7,8 @@ public class TicketSeller {
         this.ticketOffice = ticketOffice;
     }
     // encapsulation
+    // ticketOffice의 구현이 아닌 인터페이스에 의존함
     public void sellTo(Audience audience) {
-        ticketOffice.plusAmount(audience.buy(ticketOffice.getTicket()));
+        this.ticketOffice.sellTicketTo(audience);
     }
 }
