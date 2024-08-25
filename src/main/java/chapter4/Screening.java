@@ -30,4 +30,21 @@ public class Screening {
     public void setMovie(Movie movie) {
         this.movie = movie;
     }
+
+    public Money calculateFee(int audienceCount) {
+        switch (movie.getMovieType()) {
+            case AMOUNT_DISCOUNT:
+                if (movie.isDiscountable(whenScreened, sequence)) {
+                    return movie.calculateAmountDiscountFee().times(audienceCount);
+                }
+                break;
+            case PERCENT_DISCOUNT:
+                if (movie.isDiscountable(whenScreened, sequence)) {
+                    return movie.calculatePercentDiscountFee().times(audienceCount);
+                }
+            case NONE_DISCOUNT:
+                return movie.calculateNoneDiscountFee().times(audienceCount);
+        }
+        return movie.calculateNoneDiscountFee().times(audienceCount);
+    }
 }

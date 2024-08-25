@@ -1,7 +1,5 @@
 package chapter4;
 
-import chapter2.Money;
-
 public class Reservation {
     private Customer customer;
     private Screening screening;
