@@ -14,7 +14,7 @@ public class Movie {
 
     private MovieType movieType;
     private Money discountAmount;
-    private double discountPercent;
+    private Money discountPercent;
 
     public Money calculateMovieFee(Screening screening) {
         if (isDiscountable(screening)) {
