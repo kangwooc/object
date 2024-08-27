@@ -10,8 +10,7 @@ public class Movie {
     private String title;
     private Duration runningTime;
     private Money fee;
-    private List<PeriodCondition> periodConditions;
-    private List<SequenceCondition> sequenceConditions;
+    private List<DiscountCondition> discountConditions;
 
     private MovieType movieType;
     private Money discountAmount;
@@ -43,17 +42,8 @@ public class Movie {
     private Money calculatePercentDiscountAmount() {
         return fee.minus(discountPercent);
     }
-    // movie 클래스가 양쪽에 결합됨
-    // 할인 조건 추가가 더 어려워짐
+    // 다형성을 통해 응집도 문제 해결
     private boolean isDiscountable(Screening screening) {
-        return checkPeriodConditions(screening) || checkSequenceConditions(screening);
-    }
-
-    private boolean checkPeriodConditions(Screening screening) {
-        return periodConditions.stream().anyMatch(periodCondition -> periodCondition.isSatisfiedBy(screening));
-    }
-
-    private boolean checkSequenceConditions(Screening screening) {
-        return sequenceConditions.stream().anyMatch(sequenceCondition -> sequenceCondition.isSatisfiedBy(screening));
+        return discountConditions.stream().anyMatch(discountCondition -> discountCondition.isSatisfiedBy(screening));
     }
 }
