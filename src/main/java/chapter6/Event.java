@@ -18,13 +18,12 @@ public class Event {
         if (from.getDayOfWeek() != schedule.getDayOfWeek() || !from.toLocalDate().equals(schedule.getFrom()) || !duration.equals(schedule.getDuration())) {
             // 객체 상태를 수정을 한다.
             // 따라서 실행 결과를 예측하기 어려워지는 결과를 발생함
-            reschedule(schedule);
             return false;
         }
         return true;
     }
 
-    private void reschedule(RecurringSchedule schedule) {
+    public void reschedule(RecurringSchedule schedule) {
         from = LocalDateTime.of(from.toLocalDate().plusDays(daysDistance(schedule)), schedule.getFrom());
         duration = schedule.getDuration();
     }

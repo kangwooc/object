@@ -14,9 +14,9 @@ public class Main {
         Event meeting = new Event("회의",
                 LocalDateTime.of(2019, 5, 8, 10, 30),
                 Duration.ofMinutes(30));
-
-        // 두번 호출하면 이슈가 발생을 함
-        assert meeting.isSatisfied(schedule) == false;
-        assert meeting.isSatisfied(schedule) == true;
+        // 명령과 쿼리를 엄격히 분류하면 부수효과를 제어하기 수월해짐
+        if (!meeting.isSatisfied(schedule)) {
+            meeting.reschedule(schedule);
+        }
     }
 }
