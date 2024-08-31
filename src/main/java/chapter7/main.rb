@@ -1,9 +1,13 @@
-$employees = ["직원A", "직원B", "직원C"]
-$basePays = [400, 300, 250]
+def main(operation, args={})
+    case(operation)
+    when :pay then calculatePay(args[:name])
+    when "sumOfBasePays"then Employees.sumOfBasePays()
+    end
+end
 
-def main(name)
+def calculatePay(name)
     taxRate = getTaxRate()
-    pay = calculatePayFor(name, taxRate)
+    pay = Employees.calculatePay(name, taxRate)
     puts(describeResult(name, pay))
 end
 
@@ -12,12 +16,10 @@ def getTaxRate()
     return gets().chomp().to_f()
 end
 
-def calculatePayFor(name, taxRate)
-    index = $employees.index(name)
-    basepay = $basePays[index]
-    return basepay * (basepay - taxRate)
+def describeResult(name, pay)
+    return "#{name}님의 이번 달 급여는 #{pay}원입니다."
 end
 
-def describeResult(name, pay)
-    return "#{name}님의 급여는 #{pay}입니다."
+def sumOfBasePays()
+    puts("모든 직원의 기본급의 합은 #{Employees.sumOfBasePays()}원입니다.")
 end
