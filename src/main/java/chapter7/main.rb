@@ -1,7 +1,7 @@
 def main(operation, args={})
     case(operation)
     when :pay then calculatePay(args[:name])
-    when "sumOfBasePays"then Employees.sumOfBasePays()
+    when "sumOfBasePays" then Employees.sumOfBasePays()
     end
 end
 
