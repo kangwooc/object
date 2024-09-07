@@ -8,11 +8,11 @@ public class Movie {
     private Money fee;
     private DiscountPolicy discountPolicy;
 
-    public Movie(String title, Duration duration, Money fee, DiscountPolicy discountPolicy) {
+    public Movie(String title, Duration duration, Money fee) {
         this.title = title;
         this.duration = duration;
         this.fee = fee;
-        this.discountPolicy = discountPolicy;
+        this.discountPolicy = ServiceLocator.discountPolicy();
     }
 
     public Money getFee() {
