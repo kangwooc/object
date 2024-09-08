@@ -69,7 +69,6 @@ public class Phone {
                     );
                 }
             }
-
         }
 
         return result;
