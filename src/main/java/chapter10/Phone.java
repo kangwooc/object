@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 abstract class Phone {
+    private double taxRate;
     private List<Call> calls = new ArrayList<>();
+
+    public Phone(double taxRate) {
+        this.taxRate = taxRate;
+    }
 
     public Money calculateFee() {
         Money result = Money.ZERO;
@@ -13,7 +18,7 @@ abstract class Phone {
             result = result.plus(calculateCallFee(call));
         }
 
-        return result;
+        return result.plus(taxRate);
     }
 
     abstract protected Money calculateCallFee(Call call);
