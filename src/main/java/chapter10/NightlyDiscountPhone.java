@@ -1,11 +1,9 @@
 package chapter10;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
 
 // 가장 단순하게 심야할인 구현
-public class NightlyDiscountPhone extends AbstractPhone {
+public class NightlyDiscountPhone extends Phone {
     private static final int LATE_NIGHT_HOUR = 22;
 
     private Money nightlyAmount;
