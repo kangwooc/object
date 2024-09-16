@@ -1,4 +1,4 @@
-package chapter11.composition;
+package chapter11.inheritance_issue;
 
 import java.time.Duration;
 
