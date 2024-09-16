@@ -3,20 +3,19 @@ package chapter11.composition;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class Phone {
+class Phone {
+    private RatePolicy ratePolicy;
     private List<Call> calls = new ArrayList<>();
 
-    public Money calculateFee() {
-        Money result = Money.ZERO;
-
-        for (Call call : calls) {
-            result = result.plus(calculateCallFee(call));
-        }
-
-        return afterCalculated(result);
+    public Phone(RatePolicy ratePolicy) {
+        this.ratePolicy = ratePolicy;
     }
 
-    abstract protected Money calculateCallFee(Call call);
+    public List<Call> getCalls() {
+        return calls;
+    }
 
-    abstract protected Money afterCalculated(Money fee);
+    public Money calculateFee() {
+        return ratePolicy.calculateFee(this);
+    }
 }
