@@ -1,5 +1,3 @@
-package chapter11.mixin
-
 import java.time.Duration
 import java.time.LocalDateTime
 

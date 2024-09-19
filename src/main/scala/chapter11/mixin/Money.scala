@@ -1,5 +1,3 @@
-package chapter11.mixin
-
 import java.math.BigDecimal
 
 case class Money(amount: Long) {

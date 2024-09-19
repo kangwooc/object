@@ -1,5 +1,3 @@
-package chapter11.mixin
-
 trait RateDiscountablePolicy extends BasicRatePolicy {
   val discountAmount: Money
 

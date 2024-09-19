@@ -1,5 +1,3 @@
-package chapter11.mixin
-
 import java.time.Duration
 
 class NightlyDiscountPolicy(val nightlyAmount: Money, val regularAmount: Money, val seconds: Duration) extends BasicRatePolicy {

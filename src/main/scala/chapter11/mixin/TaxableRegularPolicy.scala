@@ -1,5 +1,3 @@
-package chapter11.mixin
-
 import java.time.Duration
 
 class TaxableRegularPolicy(amount: Money, seconds: Duration, val taxRate: Double) extends RegularPolicy(amount, seconds) with TaxablePolicy {
